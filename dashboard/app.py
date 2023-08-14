@@ -141,11 +141,11 @@ def cuaca(df):
 
 
 if __name__ == "__main__":
-    sns.set(style="light")
+    sns.set(style="dark")
 
     st.header("Bike Sharing Dashboard :bike:")
 
-    day_df_csv = Path(__file__).parents[1] / 'dashboard/day_clean.csv'
+    day_df_csv = Path(__file__).parents[1] / 'dashboard/dashboard_daynew.csv'
 
     day_df = pd.read_csv(day_df_csv)
 
