@@ -15,9 +15,6 @@ def tabel_musim(df):
     return tb_musim
 
 
-
-
-
 def tabel_harilibur(df):
     tb_libur = df.groupby(by="holiday").instant.nunique().reset_index()
     tb_libur.rename(columns={
@@ -165,3 +162,17 @@ if __name__ == "__main__":
     weathersit_df = tabel_cuaca(main_df)
     cuaca(weathersit_df)
 
+    fig = plt.figure(figsize=(10, 10))
+    ax = fig.add_subplot(111, projection='3d')
+
+    xs = main_df['windspeed']
+    ys = main_df['temp']
+    zs = main_df['hum']
+    ax.scatter(xs, ys, zs, s=50, alpha=0.5, edgecolors='b')
+
+    ax.set_xlabel('Windspeed')
+    ax.set_ylabel('Temp')
+    ax.set_zlabel('Hum')
+    ax.set_title("Scatter Plot 3D: Windspeed, Temp, Hum", fontsize=20)
+
+    st.pyplot(fig)
